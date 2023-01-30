@@ -1,0 +1,52 @@
+@use "../settings/breakpoints";
+
+$bp: breakpoints.$breakpoints;
+
+// Retorna true si el breakpoint es parte del core
+@function isCoreBreakpoint($bpName) {
+  @if map-has-key($map: $bp, $key: $bpName) {
+    @return true;
+  }
+
+  @return false;
+}
+
+// Retorna el valor del breakpoint
+@function getSizeBreakpoint($bpName) {
+  @return map-get($map: $bp, $key: $bpName);
+}
+
+/*
+  Retorna la valor clam()
+
+  flowFromTo(16px, 32px)
+   return clamp(16px, calc(16px + (32 - 16) * ((100vw - 320px) / (1200 - 320))), 32px);
+
+  16: tamaño de valor más pequeño
+  32: tamaño de valor más grande
+  320: tamaño de viewport más pequeño
+  1200: tamaño de viewport más grande
+*/
+@function flowFromTo($minValue, $maxValue) {
+  @return clamp(
+    $minValue,
+    calc(
+      $minValue +
+        (
+          str-slice($string: #{$maxValue}, $start-at: 0, $end-at: -3) -
+            str-slice($string: #{$minValue}, $start-at: 0, $end-at: -3)
+        ) *
+        (
+          (100vw - 320px) /
+            (
+              str-slice(
+                  $string: #{getSizeBreakpoint(xl)},
+                  $start-at: 0,
+                  $end-at: -3
+                ) - 320
+            )
+        )
+    ),
+    $maxValue
+  );
+}

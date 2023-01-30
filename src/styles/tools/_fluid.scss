@@ -1,0 +1,5 @@
+@use "./helpers";
+
+@mixin fontSize($minValue, $maxValue) {
+  font-size: helpers.flowFromTo($minValue, $maxValue);
+}

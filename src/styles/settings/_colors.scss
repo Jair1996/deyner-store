@@ -1,0 +1,16 @@
+$_primary: #FF626A;
+$_primaryLight: #FCAD72;
+$_primary_black: #333335;
+$_primary_blackLight: #4E4E50;
+$_primary_gray: #4E4E50;
+$_primary_white: #fff;
+
+$bg: #3D3D3F;
+$bg_selection: $_primary;
+$bg_gradient_gray: linear-gradient(to bottom right, #3f3f40 3%, #303030 97%);
+
+$text_white: $_primary_white;
+$text_selection: $_primary_white;
+
+$error: #c43333;
+$success: #36a839;

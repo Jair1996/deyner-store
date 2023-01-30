@@ -1,0 +1,13 @@
+@use "../settings/breakpoints";
+@use "./helpers";
+
+// Media query aplicado apartir de tamaños mayores a $bpName
+@mixin from($bpName) {
+  @if helpers.isCoreBreakpoint($bpName) {
+    @media (min-width: helpers.getSizeBreakpoint($bpName)) {
+      @content;
+    }
+  } @else {
+    @error "El mixim from() solo puede recibir un breakpoint del Core";
+  }
+}
