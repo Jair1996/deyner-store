@@ -1,0 +1,4 @@
+@use '/src/styles/tools/helpers';
+.home {
+  padding-bottom: helpers.flowFromTo(50px, 60px);
+}

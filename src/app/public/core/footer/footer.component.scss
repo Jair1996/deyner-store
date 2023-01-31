@@ -1,0 +1,18 @@
+@use '/src/styles/tools/helpers';
+
+.footer {
+  background-color: #29282d;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__nav ul {
+  display: flex;
+  gap: helpers.flowFromTo(17px, 68px);
+}
