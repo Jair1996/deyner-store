@@ -8,6 +8,7 @@ import { CarouselBannerComponent } from './components/carousel-banner/carousel-b
 import { BestProductsComponent } from './components/best-products/best-products.component';
 import { PopularProductsComponent } from './components/popular-products/popular-products.component';
 import { CarouselPopularComponent } from './components/carousel-popular/carousel-popular.component';
+import { CustomerReviewsComponent } from './components/customer-reviews/customer-reviews.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CarouselPopularComponent } from './components/carousel-popular/carousel
     CarouselBannerComponent,
     BestProductsComponent,
     PopularProductsComponent,
-    CarouselPopularComponent
+    CarouselPopularComponent,
+    CustomerReviewsComponent
   ],
   imports: [
     CommonModule,

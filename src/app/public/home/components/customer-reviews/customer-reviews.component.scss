@@ -1,0 +1,52 @@
+@use '/src/styles/tools/helpers';
+@use '/src/styles/tools/media';
+
+.customerReviews {
+  padding-top: helpers.flowFromTo(50px, 76px);
+
+  h2 {
+    font-size: helpers.flowFromTo(20px, 30px);
+    font-weight: bold;
+    margin-bottom: helpers.flowFromTo(50px, 80px);
+  }
+}
+
+.card__customerReview-containerr {
+  display: grid;
+  row-gap: 80px;
+
+  @include media.from(sm) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: helpers.flowFromTo(20px, 80px);
+  }
+
+  @include media.from(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card__customerReview {
+  background-color: #333335;
+  border-radius: 10px;
+  padding: 40px 15px 15px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.411);
+  position: relative;
+
+  picture {
+    position: absolute;
+    width: 60px;
+    top: -30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ff626a;
+  }
+
+  .card_customerReview-name {
+    font-size:  helpers.flowFromTo(14px, 16px);
+    margin-bottom: 10px;
+  }
+
+  .card_customerReview-review {
+    font-size:  helpers.flowFromTo(10px, 12px);
+  }
+}

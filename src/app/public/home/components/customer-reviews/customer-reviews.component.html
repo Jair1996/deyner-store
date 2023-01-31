@@ -1,0 +1,14 @@
+<section class="customerReviews">
+  <h2>Opiniones.</h2>
+  <div class="card__customerReview-containerr">
+    <div *ngFor="let review of reviews" class="card__customerReview">
+      <picture>
+        <img [src]="review.userImageSrc" [alt]="review.name" />
+      </picture>
+      <section>
+        <p class="card_customerReview-name">{{ review.name }}</p>
+        <p class="card_customerReview-review">{{ review.review }}</p>
+      </section>
+    </div>
+  </div>
+</section>
