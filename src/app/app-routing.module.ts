@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./protected/protected.module').then((m) => m.ProtectedModule),
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-  },
-  {
     path: '404',
     component: NotFoundComponent,
   },

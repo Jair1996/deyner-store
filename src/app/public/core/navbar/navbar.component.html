@@ -1,0 +1,55 @@
+<header class="navbar">
+  <div class="container navbar__content">
+    <section class="navbar__logo">
+      <picture>
+        <img src="assets/images/logo.svg" alt="logo" />
+      </picture>
+    </section>
+    <nav class="navbar__nav">
+      <ul>
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a routerLink="/catalogo" routerLinkActive="active">Catálogo</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="navbar__actions">
+      <a routerLink="/cart">
+        <div class="navbar__itemImgeContainer">
+          <img
+            class="navbar__itemImage"
+            ngSrc="assets/icons/shopping_cart.svg"
+            width="24"
+            height="24"
+            alt="shopping cart" />
+        </div>
+      </a>
+      <div class="navbar__loginConainer">
+        <button (click)="toogleMenu()">
+          <div class="navbar__itemImgeContainer">
+            <img
+              class="navbar__itemImage"
+              ngSrc="assets/icons/perm_identity.svg"
+              width="24"
+              height="24"
+              alt="user" />
+          </div>
+        </button>
+        <div [hidden]="showMenu" class="menu">
+          <ul>
+            <li>
+              <a (click)="toogleMenu()" routerLink="/auth/login">Iniciar sesión</a>
+            </li>
+            <li>
+              <a (click)="toogleMenu()" routerLink="/auth/registro">Registrarse</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</header>

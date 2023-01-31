@@ -1,13 +1,14 @@
-$_primary: #FF626A;
-$_primaryLight: #FCAD72;
+$_primary: #ff626a;
+$_primaryLight: #fcad72;
 $_primary_black: #333335;
-$_primary_blackLight: #4E4E50;
-$_primary_gray: #4E4E50;
+$_primary_blackLight: #4e4e50;
+$_primary_gray: #4e4e50;
 $_primary_white: #fff;
 
-$bg: #3D3D3F;
+$bg: #3d3d3f;
 $bg_selection: $_primary;
 $bg_gradient_gray: linear-gradient(to bottom right, #3f3f40 3%, #303030 97%);
+$bg_gradient_orange: linear-gradient(90.02deg, #ff626a 0.01%, #fcad72 99.99%);
 
 $text_white: $_primary_white;
 $text_selection: $_primary_white;

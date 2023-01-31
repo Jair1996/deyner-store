@@ -1,42 +1,13 @@
 @use '/src/styles/settings/colors';
+@use '/src/styles/tools/media';
 
 .public {
   background-color: colors.$bg;
   color: colors.$text_white;
   min-height: 100vh;
 
-  ul {
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-  }
-
-  a {
-    color: colors.$text_white;
-    text-decoration: none;
-  }
-
-  button {
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-  }
-
-  input,
-  textarea {
-    background-color: transparent;
-    border: none;
-    color: inherit;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  textarea {
-    resize: vertical;
+  @include media.from(sm) {
+    min-height: calc(100vh - 56px);
+    margin-top: 56px;
   }
 }

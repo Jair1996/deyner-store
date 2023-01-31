@@ -1,5 +1,6 @@
 @use '/src/styles/settings/colors';
 @use '/src/styles/settings/typography';
+@use '/src/styles/tools/helpers';
 
 body {
   font-family: typography.$ff_rubik;
@@ -23,4 +24,48 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: rgba($color: #fff, $alpha: 0.102);
   border-radius: 4px;
+}
+
+.container {
+  max-width: helpers.getSizeBreakpoint(xl);
+  width: 99%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: colors.$text_white;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+input,
+textarea {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: vertical;
 }

@@ -1,0 +1,123 @@
+@use '/src/styles/settings/colors';
+@use '/src/styles/tools/helpers';
+@use '/src/styles/tools/media';
+
+.navbar {
+  background: colors.$bg_gradient_orange;
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  & a {
+    font-size: helpers.flowFromTo(12px, 16px);
+  }
+
+  &__itemImgeContainer {
+    width: helpers.flowFromTo(35px, 40px);
+    height: helpers.flowFromTo(35px, 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #333235;
+  }
+
+  &__itemImage {
+    width: helpers.flowFromTo(14px, 24px);
+    aspect-ratio: 1;
+    height: auto;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    gap: 17px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav ul {
+    display: flex;
+    gap: helpers.flowFromTo(17px, 68px);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 17px;
+  }
+
+  &__logo {
+    display: none;
+  }
+
+  &__loginConainer {
+    position: relative;
+
+    .menu {
+      padding: 15px;
+      width: max-content;
+      position: absolute;
+      bottom: calc(100% + 15px);
+      right: 0;
+      background-color: #4e4e50;
+      box-shadow: 0 0 12px 10px rgba(0, 0, 0, 0.075);
+    }
+
+    .menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .menu a:hover {
+      color: darken($color: #fff, $amount: 15%);
+    }
+  }
+
+  @include media.from(sm) {
+    padding: 0;
+    transform: translateX(0);
+    border-radius: 0;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.11);
+    top: 0;
+    left: 0;
+    right: 0;
+
+    &__logo {
+      display: block;
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 0;
+      padding-bottom: 0;
+      align-items: center;
+    }
+
+    &__loginConainer {
+      .menu {
+        bottom: initial;
+        top: calc(100% + 15px);
+      }
+    }
+  }
+}
+
+.active {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
