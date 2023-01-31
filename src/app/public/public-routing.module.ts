@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
-import { CatalogPageComponent } from './pages/catalog-page/catalog-page.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
   {
@@ -12,11 +10,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomePageComponent,
+        loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'catalogo',
-        component: CatalogPageComponent,
+        loadChildren: () => import('./catalog/catalog.module').then((m) => m.CatalogModule),
       },
       {
         path: 'auth',
