@@ -1,0 +1,12 @@
+@use '/src/styles/tools/helpers';
+
+.populateProducts {
+  padding-top: helpers.flowFromTo(50px, 76px);
+
+  h2 {
+    font-size: helpers.flowFromTo(20px, 30px);
+    font-weight: bold;
+    margin-bottom: helpers.flowFromTo(50px, 80px);
+    text-align: center;
+  }
+}

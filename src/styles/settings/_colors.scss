@@ -6,6 +6,8 @@ $_primary_gray: #4e4e50;
 $_primary_white: #fff;
 
 $bg: #3d3d3f;
+$bg_light: $_primary_blackLight;
+$bg_dark: $_primary_black;
 $bg_selection: $_primary;
 $bg_gradient_gray: linear-gradient(to bottom right, #3f3f40 3%, #303030 97%);
 $bg_gradient_orange: linear-gradient(90.02deg, #ff626a 0.01%, #fcad72 99.99%);

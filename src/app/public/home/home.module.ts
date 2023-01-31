@@ -5,12 +5,18 @@ import { NgOptimizedImage } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CarouselBannerComponent } from './components/carousel-banner/carousel-banner.component';
+import { BestProductsComponent } from './components/best-products/best-products.component';
+import { PopularProductsComponent } from './components/popular-products/popular-products.component';
+import { CarouselPopularComponent } from './components/carousel-popular/carousel-popular.component';
 
 
 @NgModule({
   declarations: [
     HomePageComponent,
-    CarouselBannerComponent
+    CarouselBannerComponent,
+    BestProductsComponent,
+    PopularProductsComponent,
+    CarouselPopularComponent
   ],
   imports: [
     CommonModule,

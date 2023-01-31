@@ -1,0 +1,107 @@
+@use '/src/styles/tools/helpers';
+@use '/src/styles/settings/colors';
+@use '/src/styles/tools/media';
+
+.bestProducts {
+  padding-top: helpers.flowFromTo(50px, 76px);
+
+  h2 {
+    font-size: helpers.flowFromTo(20px, 30px);
+    font-weight: bold;
+    margin-bottom: helpers.flowFromTo(30px, 58px);
+  }
+}
+
+.bestProductsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: helpers.flowFromTo(4px, 10px);
+
+  img {
+    height: auto;
+  }
+
+  picture {
+    grid-row: span 2;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
+  @include media.from(md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cardProduct {
+  box-shadow: 0 0  helpers.flowFromTo(4px, 10px) 0px rgba(0, 0, 0, 0.253);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px 0px rgba(225, 225, 225, 0.253);
+  }
+
+  @include media.from(md) {
+    // &:nth-child(2) {
+    //   grid-area: seg;
+    // }
+    // &:nth-child(3) {
+    //   grid-area: ter;
+    // }
+    // &:nth-child(4) {
+    //   grid-area: cuar;
+    // }
+    // &:nth-child(5) {
+    //   grid-area: quin;
+    // }
+    // &:nth-child(6) {
+    //   grid-area: sexto;
+    // }
+    // &:nth-child(7) {
+    //   grid-area: sept;
+    // }
+  }
+
+  &__description {
+    padding: helpers.flowFromTo(10px, 15px);
+  }
+
+  &__brand {
+    font-size: helpers.flowFromTo(10px, 16px);
+    margin-bottom: helpers.flowFromTo(4px, 5px);
+  }
+
+  &__price {
+    font-size: helpers.flowFromTo(8px, 14px);
+  }
+
+  &__imageContainer {
+    position: relative;
+  }
+
+  &__image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }
+
+  &__subCategory {
+    position: absolute;
+    top: helpers.flowFromTo(15px, 20px);
+    left: helpers.flowFromTo(15px, 20px);
+    font-size: helpers.flowFromTo(10px, 16px);
+  }
+
+  &:nth-child(odd) .cardProduct__imageContainer {
+    background-color: colors.$bg_dark;
+  }
+
+  &:nth-child(even) .cardProduct__imageContainer {
+    background-color: colors.$bg_dark;
+  }
+}

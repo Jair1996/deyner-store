@@ -1,0 +1,21 @@
+<div #carouselDiv class="carouselPopular">
+  <div class="carousel-dot-container">
+    <span
+      *ngFor="let dot of images; let i = index"
+      class="dot"
+      [ngClass]="{ active: selectedIndex === i }"
+      (click)="moveToSelected(i)">
+    </span>
+  </div>
+  <div
+    *ngFor="let image of images; let i = index"
+    [ngClass]="{ prev: i === 0, selected: i === 1, next: i === 2 }"
+    [class]="'image__' + i">
+    <img
+      [ngSrc]="image.imageSrc"
+      (click)="moveToSelected(i)"
+      width="640"
+      height="404"
+      [alt]="image.imageAlt" />
+  </div>
+</div>

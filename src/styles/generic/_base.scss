@@ -5,6 +5,7 @@
 body {
   font-family: typography.$ff_rubik;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 ::selection {
