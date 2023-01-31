@@ -1,0 +1,52 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <mat-icon>menu</mat-icon>
+        <mat-nav-list>
+          <a mat-list-item (click)="sidenav.toggle()">
+            <span>Menu</span>
+          </a>
+        </mat-nav-list>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-toolbar-row>
+      <mat-icon>home</mat-icon>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard/home" (click)="sidenav.toggle()">
+          <span>Home</span>
+        </a>
+      </mat-nav-list>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <mat-icon>list</mat-icon>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard/producto/lista" (click)="sidenav.toggle()">
+          <span>Lista de productos</span>
+        </a>
+      </mat-nav-list>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <mat-icon>add</mat-icon>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard/producto/crear" (click)="sidenav.toggle()">
+          <span>Crear producto</span>
+        </a>
+      </mat-nav-list>
+    </mat-toolbar-row>
+  </mat-sidenav>
+  <mat-toolbar color="primary">
+    <button (click)="sidenav.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="title">Deyner Store</span>
+    <span class="spacer"></span>
+    <div>
+      <button (click)="logout()" mat-button>Logout</button>
+    </div>
+  </mat-toolbar>
+
+  <main class="container mt-5">
+    <router-outlet></router-outlet>
+  </main>
+</mat-sidenav-container>
