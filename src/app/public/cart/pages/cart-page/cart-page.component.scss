@@ -1,6 +1,19 @@
+@use '/src/styles/tools/media';
+@use '/src/styles/tools/helpers';
+@use '/src/styles/settings/colors';
+
 .Cart {
+  height: 100%;
   display: grid;
-  gap: 15px;
+  gap: helpers.flowFromTo(10px, 40px);
+
+  @include media.from(md) {
+    grid-template-columns: 60% 40%;
+  }
+
+  @include media.from(lg) {
+    grid-template-columns: 66.7% 1fr;
+  }
 }
 
 .Cart-content {
@@ -10,8 +23,11 @@
 
 .Cart-content_title {
   margin-bottom: 30px;
-  font-weight: 400;
   font-size: 30px;
+}
+
+.Cart-table {
+  padding-bottom: 15px;
 }
 
 .Cart-table tbody {
@@ -31,10 +47,9 @@
 .Cart-tableRow {
   display: flex;
   gap: 30px;
-  /* border: 1px solid var(--text-color-primary); */
-  /* border-radius: 6px; */
   padding: 0 20px;
-  box-shadow: 4px 8px 20px -3px rgb(141 139 139 / 15%);
+  background-color: #333335;
+  border-radius: 15px;
 }
 
 .Cart-tableD {
@@ -44,6 +59,7 @@
 
 .Cart-tableD:nth-child(1) {
   gap: 15px;
+  width: 200px;
 }
 
 .Cart-tableD:nth-child(3),
@@ -63,7 +79,7 @@
 .Cart-Button {
   border-radius: 50%;
   color: white;
-  background-color: var(--primary-color);
+  background-color: #ff626a;
   border: none;
   font-weight: 700;
   cursor: pointer;
@@ -72,11 +88,11 @@
 }
 
 .Cart-Button:hover {
-  background-color: var(--primary-color-alt);
+  background-color: darken($color: #ff626a, $amount: 20%);
 }
 
 .Cart-ButtonDelete {
-  color: var(--primary-color);
+  color: #ff626a;
   cursor: pointer;
   font-weight: bold;
 }
@@ -88,9 +104,9 @@
 
 .Cart-content.resumen {
   margin-top: 50px;
-  background-color: var(--primary-color);
-  color: #fff;
   border-radius: 15px;
+  background: colors.$bg_gradient_orange;
+  color: #fff;
   padding: 50px 40px;
 }
 
@@ -119,14 +135,11 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 750px) {
-  .Cart {
-    grid-template-columns: 60% 40%;
-  }
+.Cart-content_title.resumen {
+  font-size: helpers.flowFromTo(25px, 30px);
 }
 
-@media screen and (min-width: 975px) {
-  .Cart {
-    grid-template-columns: 66.7% 1fr;
-  }
+.tached {
+  font-size: 12px;
+  text-decoration: line-through;
 }
