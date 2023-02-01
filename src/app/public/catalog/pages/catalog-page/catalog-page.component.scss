@@ -1,0 +1,36 @@
+@use '/src/styles/tools/helpers';
+@use '/src/styles/tools/media';
+
+.catalog {
+  padding-top: helpers.flowFromTo(20px, 40px);
+  padding-bottom: helpers.flowFromTo(20px, 60px);
+
+  h2 {
+    font-size: helpers.flowFromTo(20px, 30px);
+    font-weight: bold;
+    margin-bottom: helpers.flowFromTo(20px, 40px);
+  }
+}
+
+.gridProducts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: helpers.flowFromTo(4px, 10px);
+
+  @include media.from(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media.from(md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include media.from(xl) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+}
