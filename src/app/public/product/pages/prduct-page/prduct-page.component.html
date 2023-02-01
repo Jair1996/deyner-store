@@ -1,1 +1,68 @@
-<p>prduct-page works!</p>
+<div *ngIf="!product" class="spinnerContainer">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="product" class="productPage">
+  <div class="hero">
+    <div class="hero__cotntent container">
+      <section class="imgageSection">
+        <div class="imageContainer">
+          <div class="bg__rounded"></div>
+          <picture>
+            <img [src]="selectedImage" alt="product" width="451" height="242" priority />
+          </picture>
+        </div>
+      </section>
+      <section class="imagesSecttion">
+        <picture *ngFor="let image of product.images">
+          <img (click)="selectImage(image)" [ngSrc]="image" width="45" height="45" alt="image" />
+        </picture>
+      </section>
+      <section class="detailSection">
+        <div class="content">
+          <p class="brand">{{ product.brand | titlecase }}</p>
+          <p class="name">{{ product.name | uppercase }}</p>
+          <div class="containerAccion">
+            <button mat-raised-button>Agregar al carrito</button>
+            <p *ngIf="product.ofert > 0" class="price">
+              {{ product.ofert | currency : 'S/. ' }}
+            </p>
+            <p [class.tached]="product.ofert > 0" class="price">
+              {{ product.price | currency : 'S/. ' }}
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="descriptionTitle">
+    <div class="container">
+      <h2>descripción.</h2>
+    </div>
+  </div>
+  <!-- <section class="descriptionContainer container">
+    <div>
+      <p>CALIDAD ASEGURADA</p>
+      <p>{{ product.description }}</p>
+    </div>
+    <div>
+      <p>CARACTERÍSTICAS</p>
+      <ul>
+        <li>
+          <p>Marca: {{ product.brand }}</p>
+        </li>
+        <li>
+          <p>Categoría: {{ product.category }}</p>
+        </li>
+        <li>
+          <p>Género: {{ product.gender }}</p>
+        </li>
+        <li>
+          <p>Color: {{ product.color }}</p>
+        </li>
+        <li>
+          <p>Material: {{ product.material }}</p>
+        </li>
+      </ul>
+    </div>
+  </section> -->
+</div>

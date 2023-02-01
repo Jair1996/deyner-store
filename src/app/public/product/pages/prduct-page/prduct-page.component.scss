@@ -1,0 +1,160 @@
+@use '/src/styles/tools/helpers';
+@use '/src/styles/settings/colors';
+@use '/src/styles/tools/media';
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: helpers.flowFromTo(20px, 40px);
+}
+
+.hero {
+  background: colors.$bg_gradient_orange;
+  padding-top: helpers.flowFromTo(50px, 73px);
+  padding-bottom: helpers.flowFromTo(50px, 73px);
+}
+
+.hero__cotntent {
+  position: relative;
+  display: grid;
+  gap: 20px;
+
+  @include media.from(md) {
+    grid-template-areas:
+      'image content'
+      'images .';
+
+    .imgageSection {
+      grid-area: image;
+    }
+
+    .imagesSecttion {
+      grid-area: images;
+    }
+
+    .detailSection {
+      grid-area: content;
+      align-self: center;
+    }
+  }
+
+  @include media.from(md) {
+    grid-template-areas: 'image images content';
+
+    .imgageSection {
+      justify-self: end;
+    }
+
+    .imagesSecttion {
+      align-self: center;
+      flex-direction: column;
+      justify-self: start;
+    }
+  }
+}
+
+.imgageSection {
+  .bg__rounded {
+    width: helpers.flowFromTo(180px, 410px);
+    aspect-ratio: 1/1;
+    background-color: #3d3d3f;
+    border-radius: 50%;
+  }
+
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+
+    @include media.from(lg) {
+      position: relative;
+    }
+  }
+
+  picture {
+    position: absolute;
+    width: helpers.flowFromTo(260px, 500px);
+    top: -10px;
+
+    @include media.from(lg) {
+      top: 30px;
+      left: 0px;
+    }
+  }
+}
+
+.imagesSecttion {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  picture {
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+
+    img {
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+.detailSection {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .brand {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 20px;
+
+    &.tached {
+      text-decoration: line-through;
+      font-size: 15px;
+    }
+  }
+
+  .containerAccion {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+img {
+  height: auto;
+}
+
+.descriptionTitle {
+  background: colors.$bg_gradient_orange;
+  .container {
+    position: relative;
+    height: 50px;
+  }
+
+  h2 {
+    position: absolute;
+    top: 8px;
+    font-size: helpers.flowFromTo(35px, 50px);
+
+    @include media.from(md) {
+      top: 4px;
+    }
+
+    @include media.from(lg) {
+      top: -5px;
+    }
+  }
+}
+
+.descriptionContainer {
+}
