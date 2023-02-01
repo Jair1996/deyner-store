@@ -53,19 +53,12 @@
       <input matInput formControlName="material" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Primera Imágen</mat-label>
-      <input matInput formControlName="image1" />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Segunda Imágen</mat-label>
-      <input matInput formControlName="image2" />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Tercera Imágen</mat-label>
-      <input matInput formControlName="image3" />
+    <mat-form-field
+      formArrayName="images"
+      *ngFor="let image of imageArray.controls; let i = index"
+      appearance="fill">
+      <mat-label>Imágen {{ i + 1 }}</mat-label>
+      <input matInput [formControlName]="i" />
     </mat-form-field>
   </div>
 
@@ -81,6 +74,14 @@
     </mat-checkbox>
   </div>
   <div>
-    <button type="submit" mat-raised-button color="primary">Crear Producto</button>
+    <app-spinner *ngIf="showSpinner"></app-spinner>
+    <button
+      *ngIf="!showSpinner"
+      [disabled]="registerForm.invalid"
+      type="submit"
+      mat-raised-button
+      color="primary">
+      Crear Producto
+    </button>
   </div>
 </form>
