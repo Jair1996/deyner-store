@@ -1,0 +1,13 @@
+.layoutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.layout {
+  border-radius: 20px;
+  background-color: #29282d;
+  padding: 40px;
+  box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.178);
+}

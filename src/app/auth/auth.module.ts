@@ -5,17 +5,11 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  declarations: [
-    AuthLayoutComponent,
-    LoginPageComponent,
-    RegisterPageComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ]
+  declarations: [AuthLayoutComponent, LoginPageComponent, RegisterPageComponent],
+  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule, MaterialModule],
 })
-export class AuthModule { }
+export class AuthModule {}

@@ -1,1 +1,26 @@
-<p style="color: white;">register-page works!</p>
+<div>
+  <h2>Registro.</h2>
+  <form [formGroup]="registerForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Correo</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="email" />
+      <mat-error *ngIf="isTheFieldInvalid('email')">Formato inválido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" placeholder="****" formControlName="password" />
+      <mat-error *ngIf="isTheFieldInvalid('password')">Mínimo 4 carateres</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="name" />
+      <mat-error *ngIf="isTheFieldInvalid('name')">Mínimo 2 carateres</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="lastname" />
+      <mat-error *ngIf="isTheFieldInvalid('lastname')">Mínimo 2 carateres</mat-error>
+    </mat-form-field>
+    <button [disabled]="registerForm.invalid" mat-raised-button color="warn">Registrar</button>
+  </form>
+</div>
