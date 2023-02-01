@@ -9,7 +9,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Contraseña</mat-label>
       <input matInput type="password" placeholder="****" formControlName="password" />
-      <mat-error *ngIf="isTheFieldInvalid('password')">Mínimo 4 carateres</mat-error>
+      <mat-error *ngIf="isTheFieldInvalid('password')">Mínimo 6 carateres</mat-error>
     </mat-form-field>
     <button [disabled]="loginForm.invalid" mat-raised-button color="warn">Login</button>
   </form>

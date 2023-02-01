@@ -1,6 +1,6 @@
 <div>
   <h2>Registro.</h2>
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <mat-form-field appearance="fill">
       <mat-label>Correo</mat-label>
       <input matInput placeholder="pat@example.com" formControlName="email" />
@@ -9,18 +9,28 @@
     <mat-form-field appearance="fill">
       <mat-label>Contraseña</mat-label>
       <input matInput type="password" placeholder="****" formControlName="password" />
-      <mat-error *ngIf="isTheFieldInvalid('password')">Mínimo 4 carateres</mat-error>
+      <mat-error *ngIf="isTheFieldInvalid('password')">Mínimo 6 carateres</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
-      <input matInput placeholder="pat@example.com" formControlName="name" />
+      <input matInput placeholder="pat" formControlName="name" />
       <mat-error *ngIf="isTheFieldInvalid('name')">Mínimo 2 carateres</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Apellido</mat-label>
-      <input matInput placeholder="pat@example.com" formControlName="lastname" />
+      <input matInput placeholder="smith" formControlName="lastname" />
       <mat-error *ngIf="isTheFieldInvalid('lastname')">Mínimo 2 carateres</mat-error>
     </mat-form-field>
-    <button [disabled]="registerForm.invalid" mat-raised-button color="warn">Registrar</button>
+    <div *ngIf="loading" class="spinnerContainer">
+      <app-spinner></app-spinner>
+    </div>
+    <button
+      *ngIf="!loading"
+      type="submit"
+      [disabled]="registerForm.invalid"
+      mat-raised-button
+      color="warn">
+      Registrar
+    </button>
   </form>
 </div>
