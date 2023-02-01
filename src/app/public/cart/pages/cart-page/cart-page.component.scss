@@ -1,0 +1,132 @@
+.Cart {
+  display: grid;
+  gap: 15px;
+}
+
+.Cart-content {
+  overflow: hidden;
+  padding-top: 30px;
+}
+
+.Cart-content_title {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.Cart-table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.Cart-table p {
+  margin: 0;
+}
+
+.Cart-Table-textSmall {
+  font-size: 10px;
+}
+
+.Cart-tableRow {
+  display: flex;
+  gap: 30px;
+  /* border: 1px solid var(--text-color-primary); */
+  /* border-radius: 6px; */
+  padding: 0 20px;
+  box-shadow: 4px 8px 20px -3px rgb(141 139 139 / 15%);
+}
+
+.Cart-tableD {
+  display: flex;
+  align-items: center;
+}
+
+.Cart-tableD:nth-child(1) {
+  gap: 15px;
+}
+
+.Cart-tableD:nth-child(3),
+.Cart-tableD:nth-child(7) {
+  min-width: max-content;
+}
+
+.Cart-tableImage {
+  width: 87px;
+}
+
+.Cart-tableD__buttonContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.Cart-Button {
+  border-radius: 50%;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.Cart-Button:hover {
+  background-color: var(--primary-color-alt);
+}
+
+.Cart-ButtonDelete {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.Cart-Button.Cart-Button__disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.Cart-content.resumen {
+  margin-top: 50px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 15px;
+  padding: 50px 40px;
+}
+
+.Cart-resument__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.Cart-content.resumen p {
+  margin: 0;
+}
+
+.Cart-content.resumen h2 {
+  margin-top: 0;
+}
+
+.Cart-resument__descripContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card-resumen__buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 750px) {
+  .Cart {
+    grid-template-columns: 60% 40%;
+  }
+}
+
+@media screen and (min-width: 975px) {
+  .Cart {
+    grid-template-columns: 66.7% 1fr;
+  }
+}

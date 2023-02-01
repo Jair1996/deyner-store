@@ -13,6 +13,10 @@ export class CartService {
     return this.totalProductsInCart as Observable<number>;
   }
 
+  get getAllProducts() {
+    return [...this.productsInCart];
+  }
+
   constructor() {
     this.productsInCart = JSON.parse(localStorage.getItem('products') || '[]') || [];
 

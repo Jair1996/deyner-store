@@ -1,0 +1,64 @@
+<section class="Cart container">
+  <article class="Cart-content">
+    <h2 class="Cart-content_title">Tu carrito de compra.</h2>
+    <div style="overflow-x: auto">
+      <table class="Cart-table">
+        <tbody>
+          <tr class="Cart-tableRow" *ngFor="let product of productsInCart">
+            <td class="Cart-tableD">
+              <img class="Cart-tableImage" [src]="product.images[0]" alt="imagen" />
+              <div>
+                <p>{{ product.brand | uppercase }}</p>
+                <p class="Cart-Table-textSmall">{{ product.name }}</p>
+              </div>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD">{{ product.price | currency : 'S/. ' }}</td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD Cart-tableD__buttonContainer">
+              <button
+                ng-click="$ctrl.handleDecrement(product._id, product.size)"
+                class="Cart-Button"
+                ng-class="{ 'Cart-Button__disabled': product.quantity == 1 }">
+                -
+              </button>
+              <span>{{ product.quantity }}</span>
+              <button
+                ng-click="$ctrl.handleIncrement(product._id, product.size)"
+                class="Cart-Button">
+                +
+              </button>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD">{{ product.quantity * product.price | currency : 'S/. ' }}</td>
+            <td
+              ng-click="$ctrl.handleDeleteProduct(product._id, product.size)"
+              class="Cart-tableD Cart-ButtonDelete">
+              X
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article class="Cart-content resumen">
+    <h2 class="Cart-content_title">Resumen de orden.</h2>
+    <!-- <div class="Cart-resument__container">
+      <div class="Cart-resument__descripContainer">
+        <p>N° Productos</p>
+        <p>
+          <app-product-quantity></app-product-quantity>
+        </p>
+      </div>
+      <div class="Cart-resument__descripContainer">
+        <p>Total</p>
+        <p>
+          <app-order-price></app-order-price>
+        </p>
+      </div>
+    </div>
+    <div class="Card-resumen__buttonContainer">
+      <app-button text="Continuar orden" path="orden" type="ghost"></app-button>
+    </div> -->
+  </article>
+</section>
