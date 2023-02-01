@@ -13,3 +13,7 @@ export interface Product {
   description: string;
   best: boolean;
 }
+
+export interface ProductInCart extends Product {
+  quantity: number;
+}

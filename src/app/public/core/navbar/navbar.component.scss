@@ -122,3 +122,25 @@
   color: #000;
   border-bottom: 1px solid #000;
 }
+
+.navbar__itemImgeContainer {
+  position: relative;
+}
+
+.counterCart {
+  width: 26px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #ff626a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+
+  p {
+    font-weight: bold;
+    font-size: 14px;
+  }
+}

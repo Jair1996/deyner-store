@@ -22,7 +22,7 @@
           <p class="brand">{{ product.brand | titlecase }}</p>
           <p class="name">{{ product.name | uppercase }}</p>
           <div class="containerAccion">
-            <button mat-raised-button>Agregar al carrito</button>
+            <button (click)="addToCart()" mat-raised-button>Agregar al carrito</button>
             <p *ngIf="product.ofert > 0" class="price">
               {{ product.ofert | currency : 'S/. ' }}
             </p>

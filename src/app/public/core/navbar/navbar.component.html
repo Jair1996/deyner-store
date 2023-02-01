@@ -20,6 +20,9 @@
     <section class="navbar__actions">
       <a routerLink="/cart">
         <div class="navbar__itemImgeContainer">
+          <div class="counterCart">
+            <p>{{ totalObservable | async }}</p>
+          </div>
           <img
             class="navbar__itemImage"
             ngSrc="assets/icons/shopping_cart.svg"
