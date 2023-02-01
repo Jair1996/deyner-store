@@ -7,6 +7,8 @@ import {
   doc,
   deleteDoc,
   addDoc,
+  query,
+  where,
 } from '@angular/fire/firestore';
 
 import { Observable } from 'rxjs';
@@ -22,6 +24,15 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     const productRef = collection(this.firestore, 'products');
     return collectionData(productRef, { idField: 'id' }) as Observable<Product[]>;
+  }
+
+  getBestProducts(): Observable<Product[]> {
+    const playersRef = collection(this.firestore, 'products');
+    let q = query(playersRef);
+
+    q = query(playersRef, where('best', '==', true));
+
+    return collectionData(q) as unknown as Observable<Product[]>;
   }
 
   addProduct(product: Product) {

@@ -1,0 +1,59 @@
+<div *ngIf="products.length === 0" class="spinnerContainer">
+  <app-spinner></app-spinner>
+</div>
+
+<div [hidden]="products.length === 0" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="sku">
+      <th mat-header-cell *matHeaderCellDef>SKU</th>
+      <td mat-cell *matCellDef="let element">{{ element.sku }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.name | uppercase }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef>Marca</th>
+      <td mat-cell *matCellDef="let element">{{ element.brand | titlecase }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Género</th>
+      <td mat-cell *matCellDef="let element">{{ element.gender | titlecase }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Precio</th>
+      <td mat-cell *matCellDef="let element">{{ element.price | currency : 'S/. ' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ofert">
+      <th mat-header-cell *matHeaderCellDef>Oferta</th>
+      <td mat-cell *matCellDef="let element">{{ element.ofert | currency : 'S/. ' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          (click)="delete(element)"
+          mat-mini-fab
+          color="warn"
+          aria-label="Example icon button with a filter list icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

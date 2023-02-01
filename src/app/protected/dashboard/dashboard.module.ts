@@ -11,6 +11,7 @@ import { CreateProductPageComponent } from './pages/create-product-page/create-p
 import { CreateProductFormComponent } from './components/create-product-form/create-product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TableProductsComponent } from './components/table-products/table-products.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HomePageComponent,
     ListProductPageComponent,
     CreateProductPageComponent,
-    CreateProductFormComponent
+    CreateProductFormComponent,
+    TableProductsComponent
   ],
   imports: [
     CommonModule,
