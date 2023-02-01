@@ -1,0 +1,24 @@
+<div class="cardProduct" [routerLink]="['/producto', product.id]">
+  <div class="cardProduct__description">
+    <p class="cardProduct__brand">{{ product.name | uppercase }}</p>
+    <div class="cardProduct__priceContainer">
+      <p class="cardProduct__price">
+        Precio:
+        <span [class.tached]="product.ofert > 0">{{ product.price | currency : 'S/. ' }}</span>
+      </p>
+      <p class="cardProduct__price cardProduct__ofert" *ngIf="product.ofert > 0">
+        {{ product.ofert | currency : 'S/. ' }}
+      </p>
+    </div>
+  </div>
+  <div class="cardProduct__imageContainer">
+    <picture>
+      <img
+        class="cardProduct__image"
+        [ngSrc]="product.images[0]"
+        width="319"
+        height="236"
+        [alt]="product.name" />
+    </picture>
+  </div>
+</div>

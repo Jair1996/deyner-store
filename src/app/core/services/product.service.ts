@@ -32,7 +32,7 @@ export class ProductService {
 
     q = query(playersRef, where('best', '==', true));
 
-    return collectionData(q) as unknown as Observable<Product[]>;
+    return collectionData(q, { idField: 'id' }) as unknown as Observable<Product[]>;
   }
 
   addProduct(product: Product) {

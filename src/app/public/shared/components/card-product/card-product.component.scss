@@ -1,0 +1,65 @@
+@use '/src/styles/tools/helpers';
+@use '/src/styles/settings/colors';
+
+.cardProduct {
+  box-shadow: 0 0 helpers.flowFromTo(4px, 10px) 0px rgba(0, 0, 0, 0.253);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px 0px rgba(225, 225, 225, 0.253);
+  }
+
+  &__description {
+    padding: helpers.flowFromTo(10px, 15px);
+  }
+
+  &__brand {
+    font-size: helpers.flowFromTo(10px, 16px);
+    margin-bottom: helpers.flowFromTo(4px, 5px);
+  }
+
+  &__priceContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price {
+    font-size: helpers.flowFromTo(8px, 14px);
+  }
+
+  &__ofert {
+    color: #ff626a;
+  }
+
+  &__imageContainer {
+    position: relative;
+  }
+
+  &__image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: auto;
+  }
+
+  &__subCategory {
+    position: absolute;
+    top: helpers.flowFromTo(15px, 20px);
+    left: helpers.flowFromTo(15px, 20px);
+    font-size: helpers.flowFromTo(10px, 16px);
+  }
+
+  &:nth-child(odd) .cardProduct__imageContainer {
+    background-color: colors.$bg_dark;
+  }
+
+  &:nth-child(even) .cardProduct__imageContainer {
+    background-color: colors.$bg_dark;
+  }
+}
+
+.tached {
+  text-decoration: line-through;
+}

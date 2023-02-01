@@ -1,6 +1,9 @@
 <section class="bestProducts">
   <h2>Los Mejores Productos.</h2>
-  <div class="bestProductsList">
+  <div *ngIf="bestProducts.length === 0" class="spinnerContainer">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="bestProducts.length > 0" class="bestProductsList">
     <picture>
       <img
         ngSrc="assets/images/image_bestProducts.png"
@@ -9,101 +12,6 @@
         priority
         alt="bestProductImage" />
     </picture>
-    <div class="cardProduct">
-      <div class="cardProduct__description">
-        <p class="cardProduct__brand">{{ 'PUMA MATFIX-RAY SPEED 1' | uppercase }}</p>
-        <p class="cardProduct__price">Precio: S/. 289.00</p>
-      </div>
-      <div class="cardProduct__imageContainer">
-        <picture>
-          <img
-            class="cardProduct__image"
-            ngSrc="assets/images/prueba_shoe.png"
-            width="319"
-            height="236"
-            alt="bestProductImage" />
-        </picture>
-      </div>
-    </div>
-    <div class="cardProduct">
-      <div class="cardProduct__description">
-        <p class="cardProduct__brand">{{ 'PUMA MATFIX-RAY SPEED 2' | uppercase }}</p>
-        <p class="cardProduct__price">Precio: S/. 289.00</p>
-      </div>
-      <div class="cardProduct__imageContainer">
-        <picture>
-          <img
-            class="cardProduct__image"
-            ngSrc="assets/images/prueba_shoe.png"
-            width="319"
-            height="236"
-            alt="bestProductImage" />
-        </picture>
-      </div>
-    </div>
-    <div class="cardProduct">
-      <div class="cardProduct__description">
-        <p class="cardProduct__brand">{{ 'PUMA MATFIX-RAY SPEED 3' | uppercase }}</p>
-        <p class="cardProduct__price">Precio: S/. 289.00</p>
-      </div>
-      <div class="cardProduct__imageContainer">
-        <picture>
-          <img
-            class="cardProduct__image"
-            ngSrc="assets/images/prueba_shoe.png"
-            width="319"
-            height="236"
-            alt="bestProductImage" />
-        </picture>
-      </div>
-    </div>
-    <div class="cardProduct">
-      <div class="cardProduct__description">
-        <p class="cardProduct__brand">{{ 'PUMA MATFIX-RAY SPEED 4' | uppercase }}</p>
-        <p class="cardProduct__price">Precio: S/. 289.00</p>
-      </div>
-      <div class="cardProduct__imageContainer">
-        <picture>
-          <img
-            class="cardProduct__image"
-            ngSrc="assets/images/prueba_shoe.png"
-            width="319"
-            height="236"
-            alt="bestProductImage" />
-        </picture>
-      </div>
-    </div>
-    <div class="cardProduct">
-      <div class="cardProduct__description">
-        <p class="cardProduct__brand">{{ 'PUMA MATFIX-RAY SPEED 5' | uppercase }}</p>
-        <p class="cardProduct__price">Precio: S/. 289.00</p>
-      </div>
-      <div class="cardProduct__imageContainer">
-        <picture>
-          <img
-            class="cardProduct__image"
-            ngSrc="assets/images/prueba_shoe.png"
-            width="319"
-            height="236"
-            alt="bestProductImage" />
-        </picture>
-      </div>
-    </div>
-    <div class="cardProduct">
-      <div class="cardProduct__description">
-        <p class="cardProduct__brand">{{ 'PUMA MATFIX-RAY SPEED 6' | uppercase }}</p>
-        <p class="cardProduct__price">Precio: S/. 289.00</p>
-      </div>
-      <div class="cardProduct__imageContainer">
-        <picture>
-          <img
-            class="cardProduct__image"
-            ngSrc="assets/images/prueba_shoe.png"
-            width="319"
-            height="236"
-            alt="bestProductImage" />
-        </picture>
-      </div>
-    </div>
+    <app-card-product *ngFor="let product of bestProducts" [product]="product"></app-card-product>
   </div>
 </section>

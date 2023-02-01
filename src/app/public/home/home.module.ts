@@ -9,7 +9,8 @@ import { BestProductsComponent } from './components/best-products/best-products.
 import { PopularProductsComponent } from './components/popular-products/popular-products.component';
 import { CarouselPopularComponent } from './components/carousel-popular/carousel-popular.component';
 import { CustomerReviewsComponent } from './components/customer-reviews/customer-reviews.component';
-
+import { SharedModule } from '../shared/shared.module';
+import { SharedModule as GlobalSharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,8 @@ import { CustomerReviewsComponent } from './components/customer-reviews/customer
     BestProductsComponent,
     PopularProductsComponent,
     CarouselPopularComponent,
-    CustomerReviewsComponent
+    CustomerReviewsComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    NgOptimizedImage,
-  ]
+  imports: [CommonModule, HomeRoutingModule, NgOptimizedImage, GlobalSharedModule, SharedModule],
 })
-export class HomeModule { }
+export class HomeModule {}
