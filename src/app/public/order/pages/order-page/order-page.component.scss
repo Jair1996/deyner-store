@@ -1,0 +1,200 @@
+@use '/src/styles/tools/media';
+@use '/src/styles/tools/helpers';
+@use '/src/styles/settings/colors';
+
+// warning
+
+.Cart {
+  height: 100%;
+  display: grid;
+  gap: helpers.flowFromTo(10px, 40px);
+
+  @include media.from(md) {
+    grid-template-columns: 60% 40%;
+  }
+
+  @include media.from(lg) {
+    grid-template-columns: 66.7% 1fr;
+  }
+}
+
+.Cart-content {
+  overflow: hidden;
+  padding-top: 30px;
+}
+
+.Cart-content_title {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.Cart-table {
+  padding-bottom: 15px;
+}
+
+.Cart-table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.Cart-table p {
+  margin: 0;
+}
+
+.Cart-Table-textSmall {
+  font-size: 10px;
+}
+
+.Cart-tableRow {
+  display: flex;
+  gap: 30px;
+  padding: 0 20px;
+  background-color: #333335;
+  border-radius: 15px;
+}
+
+.Cart-tableD {
+  display: flex;
+  align-items: center;
+}
+
+.Cart-tableD:nth-child(1) {
+  gap: 15px;
+  width: 200px;
+}
+
+.Cart-tableD:nth-child(3),
+.Cart-tableD:nth-child(7) {
+  min-width: max-content;
+}
+
+.Cart-tableImage {
+  width: 87px;
+}
+
+.Cart-tableD__buttonContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.Cart-Button:hover {
+  background-color: darken($color: #ff626a, $amount: 20%);
+}
+
+.Cart-ButtonDelete {
+  color: #ff626a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.Cart-Button.Cart-Button__disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.Cart-content.resumen {
+  // margin-top: 50px;
+  // background: colors.$bg_gradient_orange;
+  // color: #fff;
+  border-radius: 15px;
+  padding: 50px 40px;
+}
+
+.Cart-resument__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.Cart-content.resumen p {
+  margin: 0;
+}
+
+.Cart-content.resumen h2 {
+  margin-top: 0;
+}
+
+.Cart-resument__descripContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card-resumen__buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.Cart-content_title.resumen {
+  font-size: helpers.flowFromTo(25px, 30px);
+}
+
+.tached {
+  font-size: 12px;
+  text-decoration: line-through;
+}
+//fsafsf
+
+.Orden {
+  padding-bottom: 50px;
+}
+
+.Orden-Form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.Orden-Form__inputGroup {
+  margin-bottom: 15px;
+}
+
+.Orden-Form__group {
+  display: flex;
+  gap: 10px;
+}
+
+.Orden-Form input {
+  padding: 15px;
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 20px;
+  width: 100%;
+
+  &::placeholder {
+    color: rgb(167, 167, 167);
+  }
+}
+
+.Orden-Form__metodosContainer {
+  position: relative;
+}
+
+.Orden-Form__metodos {
+  position: absolute;
+  top: 33%;
+  right: 15px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.Cart-content.resumen.orden {
+  background-color: #333335;
+  // color: ;
+  box-shadow: 0 0 20px 9px rgba(133, 130, 130, 0.15);
+}
+
+.Orden-Form__inputGroup:nth-child(3) {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 750px) {
+  .Cart-content.resumen.orden {
+    margin-top: 20px;
+  }
+}
+
+.OrdenLoader {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

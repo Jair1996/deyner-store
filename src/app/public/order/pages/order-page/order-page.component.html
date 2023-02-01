@@ -1,0 +1,98 @@
+<section class="Cart Orden container">
+  <article class="Cart-content">
+    <h2 class="Cart-content_title">Resumen de compra.</h2>
+    <div style="overflow-x: auto">
+      <table class="Cart-table">
+        <tbody>
+          <tr class="Cart-tableRow" *ngFor="let product of productsInCart">
+            <td class="Cart-tableD">
+              <img
+                class="Cart-tableImage"
+                [src]="product.images[0]"
+                width="87"
+                height="64"
+                alt="imagen" />
+              <div>
+                <p>{{ product.brand | uppercase }}</p>
+                <p class="Cart-Table-textSmall">{{ product.name }}</p>
+              </div>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD">
+              <div>
+                <p *ngIf="product.ofert > 0">{{ product.ofert | currency : 'S/. ' }}</p>
+                <p [class.tached]="product.ofert > 0">{{ product.price | currency : 'S/. ' }}</p>
+              </div>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD Cart-tableD__buttonContainer">
+              <span>{{ product.quantity }}</span>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD">
+              {{ product.quantity * (product.ofert || product.price) | currency : 'S/. ' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article class="Cart-content resumen orden">
+    <div ng-if="!$ctrl.pagando">
+      <div class="Cart-resument__container">
+        <div class="Cart-resument__descripContainer">
+          <p>N° Productos</p>
+          <p>
+            {{ totalObservable | async }}
+          </p>
+        </div>
+        <div class="Cart-resument__descripContainer">
+          <p>Total</p>
+          <p>
+            {{ totalPriceObservable | async | currency : 'S/. ' }}
+          </p>
+        </div>
+      </div>
+      <div>
+        <form class="Orden-Form" name="form" autocomplete="off">
+          <div class="Orden-Form__inputGroup">
+            <label>Número de tarjeta:</label>
+            <div class="Orden-Form__metodosContainer">
+              <input
+                name="numerotarjeta"
+                type="text"
+                pattern="^\d{16}?$"
+                placeholder="1234 1234 1234 1234" />
+              <div class="Orden-Form__metodos">
+                <img src="https://calvic.netlify.app/src/assets/visa.svg" alt="visa" />
+                <img src="https://calvic.netlify.app/src/assets/mastercard.svg" alt="mastercard" />
+              </div>
+            </div>
+          </div>
+          <div class="Orden-Form__inputGroup">
+            <label>Caducidad:</label>
+            <div class="Orden-Form__group">
+              <input name="caducidadmm" pattern="^\d{2}?$" type="text" placeholder="MM" />
+              <input name="caducidadaa" pattern="^\d{2}?$" type="text" placeholder="AA" />
+            </div>
+          </div>
+          <div class="Orden-Form__inputGroup">
+            <label>CVC:</label>
+            <div class="Orden-Form__metodosContainer">
+              <input name="cvc" type="tetx" pattern="^\d{3}?$" placeholder="CVC" />
+              <div>
+                <img
+                  class="Orden-Form__metodos"
+                  src="https://calvic.netlify.app/src/assets/cvc.svg"
+                  alt="mastercard" />
+              </div>
+            </div>
+          </div>
+          <div class="Card-resumen__buttonContainer">
+            <app-button text="Pagar"></app-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </article>
+</section>

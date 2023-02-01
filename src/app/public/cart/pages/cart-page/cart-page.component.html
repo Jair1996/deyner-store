@@ -61,7 +61,7 @@
       <div class="Cart-resument__descripContainer">
         <p>Total</p>
         <p>
-          {{ totalPriceObservable | async }}
+          {{ totalPriceObservable | async | currency : 'S/. ' }}
         </p>
       </div>
     </div>
