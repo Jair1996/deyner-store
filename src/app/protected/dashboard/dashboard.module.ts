@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ListProductPageComponent } from './pages/list-product-page/list-product-page.component';
 import { CreateProductPageComponent } from './pages/create-product-page/create-product-page.component';
+import { CreateProductFormComponent } from './components/create-product-form/create-product-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,13 +17,15 @@ import { CreateProductPageComponent } from './pages/create-product-page/create-p
     NavbarComponent,
     HomePageComponent,
     ListProductPageComponent,
-    CreateProductPageComponent
+    CreateProductPageComponent,
+    CreateProductFormComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

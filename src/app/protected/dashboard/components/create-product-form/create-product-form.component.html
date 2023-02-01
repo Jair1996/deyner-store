@@ -1,0 +1,86 @@
+<form class="form" [formGroup]="registerForm" (ngSubmit)="create()" autocomplete="off">
+  <div class="grid">
+    <mat-form-field appearance="fill">
+      <mat-label>SKU</mat-label>
+      <input matInput formControlName="sku" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Marca</mat-label>
+      <input matInput formControlName="brand" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Precio</mat-label>
+      <input type="number" matInput formControlName="price" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Oferta</mat-label>
+      <input type="number" matInput formControlName="ofert" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Género</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="hombre">Hombre</mat-option>
+        <mat-option value="mujer">Mujer</mat-option>
+        <mat-option value="niño">Niño</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Categoría</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="zapatilla">Zapatilla</mat-option>
+        <mat-option value="zapato">Zapato</mat-option>
+        <mat-option value="sandalia">Sandalia</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Color</mat-label>
+      <input matInput formControlName="color" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Material</mat-label>
+      <input matInput formControlName="material" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Primera Imágen</mat-label>
+      <input matInput formControlName="image1" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Segunda Imágen</mat-label>
+      <input matInput formControlName="image2" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tercera Imágen</mat-label>
+      <input matInput formControlName="image3" />
+    </mat-form-field>
+  </div>
+
+  <div class="text-area">
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="checkbox__container">
+    <mat-checkbox formControlName="best">
+      Marcar como mejor producto (se mostrará en el home))
+    </mat-checkbox>
+  </div>
+  <div>
+    <button type="submit" mat-raised-button color="primary">Crear Producto</button>
+  </div>
+</form>
