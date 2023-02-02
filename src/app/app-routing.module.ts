@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { DashboardAuthorizationGuard } from './core/guards/dashboard-authorization.guard';
@@ -12,8 +11,8 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./protected/protected.module').then((m) => m.ProtectedModule),
-    // ...canActivate(() => redirectUnauthorizedTo(['/'])),
     canActivate: [DashboardAuthorizationGuard],
+    canMatch: [DashboardAuthorizationGuard],
   },
   {
     path: '404',
