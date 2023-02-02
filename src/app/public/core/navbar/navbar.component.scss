@@ -29,6 +29,15 @@
     align-items: center;
     border-radius: 50%;
     background-color: #333235;
+
+    &.auth {
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 20px;
+      min-width: max-content;
+      justify-content: space-between;
+      gap: 20px;
+    }
   }
 
   &__itemImage {
