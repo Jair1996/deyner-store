@@ -82,4 +82,11 @@ export class CartService {
       this.syncLocalStorage();
     }
   }
+
+  clear() {
+    this.productsInCart = [];
+    this.totalProductsInCart.next(this.totatalProducts());
+    this.totalPrice.next(this.totalPriceToPay());
+    this.syncLocalStorage();
+  }
 }
