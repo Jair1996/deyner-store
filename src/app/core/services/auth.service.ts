@@ -6,13 +6,15 @@ import {
   signOut,
   authState,
 } from '@angular/fire/auth';
+import { map, Observable } from 'rxjs';
 import { AuthModel } from '../models/auth.model';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth, private userService: UserService) {}
 
   login({ email, password }: AuthModel) {
     return signInWithEmailAndPassword(this.auth, email, password);

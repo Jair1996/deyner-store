@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
 
+import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +21,7 @@ const routes: Routes = [
       {
         path: 'auth',
         loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
+        ...canActivate(() => redirectLoggedInTo(['/'])),
       },
       {
         path: 'producto',
@@ -31,6 +34,7 @@ const routes: Routes = [
       {
         path: 'orden',
         loadChildren: () => import('./order/order.module').then((m) => m.OrderModule),
+        ...canActivate(() => redirectUnauthorizedTo(['/carrito'])),
       },
     ],
   },

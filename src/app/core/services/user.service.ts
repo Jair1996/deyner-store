@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, Firestore, getDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, getDoc, setDoc } from '@angular/fire/firestore';
 import { doc } from '@firebase/firestore';
 import { User } from '../models/user.model';
 
