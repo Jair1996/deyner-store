@@ -12,20 +12,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cart-page.component.scss'],
 })
 export class CartPageComponent implements OnInit {
-  productsInCart!: ProductInCart[];
   totalObservable!: Observable<number>;
   totalPriceObservable!: Observable<number>;
   isLoggedIn = false;
 
   constructor(
-    private cartService: CartService,
+    public cartService: CartService,
     private router: Router,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.totalObservable = this.cartService.getTotalProductsInCart;
-    this.productsInCart = this.cartService.getAllProducts;
     this.totalPriceObservable = this.cartService.getTotalPriceToPay;
 
     this.authService.authState().subscribe((resp) => {
@@ -51,5 +49,9 @@ export class CartPageComponent implements OnInit {
     } else {
       Swal.fire('Ooops!', 'Necesita iniciar sesión para continuar su compra', 'warning');
     }
+  }
+
+  remove(id: string) {
+    this.cartService.removeProduct(id);
   }
 }

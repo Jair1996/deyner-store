@@ -6,7 +6,7 @@ import { ProductInCart } from '../models/product.model';
   providedIn: 'root',
 })
 export class CartService {
-  private productsInCart: ProductInCart[];
+  productsInCart: ProductInCart[];
   private totalProductsInCart = new BehaviorSubject<number>(0);
   private totalPrice = new BehaviorSubject<number>(0);
 
@@ -38,6 +38,13 @@ export class CartService {
       this.productsInCart.push(product);
     }
 
+    this.syncLocalStorage();
+    this.totalProductsInCart.next(this.totatalProducts());
+    this.totalPrice.next(this.totalPriceToPay());
+  }
+
+  removeProduct(id: string) {
+    this.productsInCart = this.productsInCart.filter((product) => product.id !== id);
     this.syncLocalStorage();
     this.totalProductsInCart.next(this.totatalProducts());
     this.totalPrice.next(this.totalPriceToPay());
