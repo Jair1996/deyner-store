@@ -39,30 +39,30 @@
       <h2>descripción.</h2>
     </div>
   </div>
-  <!-- <section class="descriptionContainer container">
-    <div>
-      <p>CALIDAD ASEGURADA</p>
-      <p>{{ product.description }}</p>
+  <section class="descriptionContainer container">
+    <div class="description">
+      <p class="title">CALIDAD ASEGURADA</p>
+      <p class="content">{{ product.description }}</p>
     </div>
-    <div>
-      <p>CARACTERÍSTICAS</p>
-      <ul>
+    <div class="description">
+      <p class="title">CARACTERÍSTICAS</p>
+      <ul class="content">
         <li>
-          <p>Marca: {{ product.brand }}</p>
+          <p><span class="strong">Marca:</span> {{ product.brand | titlecase }}</p>
         </li>
         <li>
-          <p>Categoría: {{ product.category }}</p>
+          <p><span class="strong">Categoría:</span> {{ product.category | titlecase }}</p>
         </li>
         <li>
-          <p>Género: {{ product.gender }}</p>
+          <p><span class="strong">Género:</span> {{ product.gender | titlecase }}</p>
         </li>
         <li>
-          <p>Color: {{ product.color }}</p>
+          <p><span class="strong">Color:</span> {{ product.color | titlecase }}</p>
         </li>
         <li>
-          <p>Material: {{ product.material }}</p>
+          <p><span class="strong">Material:</span> {{ product.material | titlecase }}</p>
         </li>
       </ul>
     </div>
-  </section> -->
+  </section>
 </div>
