@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
@@ -12,10 +13,13 @@ export class NavbarComponent implements OnInit {
 
   totalObservable!: Observable<number>;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.totalObservable = this.cartService.getTotalProductsInCart;
+    this.authService.authState().subscribe((data) => {
+      console.log(data);
+    });
   }
 
   toogleMenu() {

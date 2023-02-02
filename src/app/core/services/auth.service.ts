@@ -27,6 +27,6 @@ export class AuthService {
   }
 
   authState() {
-    return authState;
+    return authState(this.auth);
   }
 }

@@ -1,6 +1,6 @@
 <div>
   <h2>Login.</h2>
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <mat-form-field appearance="fill">
       <mat-label>Correo</mat-label>
       <input matInput placeholder="pat@example.com" formControlName="email" />
@@ -11,6 +11,16 @@
       <input matInput type="password" placeholder="****" formControlName="password" />
       <mat-error *ngIf="isTheFieldInvalid('password')">Mínimo 6 carateres</mat-error>
     </mat-form-field>
-    <button [disabled]="loginForm.invalid" mat-raised-button color="warn">Login</button>
+    <div *ngIf="loading" class="spinnerContainer">
+      <app-spinner></app-spinner>
+    </div>
+    <button
+      *ngIf="!loading"
+      type="submit"
+      [disabled]="loginForm.invalid"
+      mat-raised-button
+      color="warn">
+      Login
+    </button>
   </form>
 </div>
