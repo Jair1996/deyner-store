@@ -3,7 +3,7 @@ import { ProductInOrder } from './product.model';
 export interface Order {
   id?: string;
   userId: string;
-  orderDate: string;
+  orderDate: number;
   products: ProductInOrder[];
   totalPrice: number;
 }

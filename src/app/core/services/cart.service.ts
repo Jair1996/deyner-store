@@ -51,7 +51,7 @@ export class CartService {
     return this.productsInCart.reduce((current, product) => current + product.quantity, 0);
   }
 
-  private totalPriceToPay(): number {
+  public totalPriceToPay(): number {
     return this.productsInCart.reduce((current, product) => {
       const priceToPay = product.ofert || product.price;
 

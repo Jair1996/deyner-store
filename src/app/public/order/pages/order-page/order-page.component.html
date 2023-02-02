@@ -89,7 +89,10 @@
             </div>
           </div>
           <div class="Card-resumen__buttonContainer">
-            <app-button (click)="pay()" text="Pagar"></app-button>
+            <div *ngIf="loading" class="spinnerContainer">
+              <app-spinner></app-spinner>
+            </div>
+            <app-button *ngIf="!loading" (click)="pay()" text="Pagar"></app-button>
           </div>
         </form>
       </div>

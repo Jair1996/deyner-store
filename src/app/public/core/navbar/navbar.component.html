@@ -63,7 +63,7 @@
           </ul>
           <ul *ngIf="authService.userLoggedIn">
             <li>
-              <a (click)="toogleMenu()" routerLink="/pedidos">Ver mis pedidos</a>
+              <a (click)="toogleMenu()" routerLink="/orden/lista">Ver mis pedidos</a>
             </li>
             <li *ngIf="authService.userLoggedIn.role === 'admin'">
               <a (click)="toogleMenu()" routerLink="/dashboard/home">Ir al dashboard</a>
