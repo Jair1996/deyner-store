@@ -6,8 +6,9 @@ import {
   signOut,
   authState,
 } from '@angular/fire/auth';
-import { map, Observable } from 'rxjs';
+import { defer, from, map, Observable, of, switchMap } from 'rxjs';
 import { AuthModel } from '../models/auth.model';
+import { User } from '../models/user.model';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -30,5 +31,17 @@ export class AuthService {
 
   authState() {
     return authState(this.auth);
+  }
+
+  isLoggedInAndIsAdmin(): Observable<boolean> {
+    return this.authState().pipe(
+      switchMap((data) => {
+        if (!data) return of(false);
+
+        const id = data.uid;
+
+        return this.userService.isAdmin(id);
+      })
+    );
   }
 }
