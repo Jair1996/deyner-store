@@ -17,3 +17,11 @@ export interface Product {
 export interface ProductInCart extends Product {
   quantity: number;
 }
+
+export interface ProductInOrder
+  extends Omit<
+    ProductInCart,
+    'gender' | 'category' | 'color' | 'material' | 'images' | 'description' | 'best'
+  > {
+  image: string;
+}

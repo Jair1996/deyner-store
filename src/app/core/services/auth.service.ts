@@ -6,7 +6,7 @@ import {
   signOut,
   authState,
 } from '@angular/fire/auth';
-import { defer, from, map, Observable, of, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { AuthModel } from '../models/auth.model';
 import { User } from '../models/user.model';
 import { UserService } from './user.service';
@@ -15,6 +15,8 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class AuthService {
+  userLoggedIn: User | null = null;
+
   constructor(private auth: Auth, private userService: UserService) {}
 
   login({ email, password }: AuthModel) {
