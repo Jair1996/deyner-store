@@ -6,12 +6,14 @@ import { OrderPageComponent } from './pages/order-page/order-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ListOrderPageComponent } from './pages/list-order-page/list-order-page.component';
 import { MaterialModule } from 'src/app/material/material.module';
+import { OrderDetailPageComponent } from './pages/order-detail-page/order-detail-page.component';
 
 
 @NgModule({
   declarations: [
     OrderPageComponent,
-    ListOrderPageComponent
+    ListOrderPageComponent,
+    OrderDetailPageComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,73 @@
+<section class="Cart Orden container">
+  <div *ngIf="loading" class="spinnerContainer">
+    <app-spinner></app-spinner>
+  </div>
+  <article *ngIf="!loading" class="Cart-content">
+    <h2 class="Cart-content_title">Detalle de orden.</h2>
+    <div style="overflow-x: auto">
+      <table class="Cart-table">
+        <tbody>
+          <tr class="Cart-tableRow" *ngFor="let product of order.products">
+            <td class="Cart-tableD">
+              <img
+                class="Cart-tableImage"
+                [src]="product.image"
+                width="87"
+                height="64"
+                alt="imagen" />
+              <div>
+                <p>{{ product.brand | uppercase }}</p>
+                <p class="Cart-Table-textSmall">{{ product.name }}</p>
+              </div>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD">
+              <div>
+                <p *ngIf="product.ofert > 0">{{ product.ofert | currency : 'S/. ' }}</p>
+                <p [class.tached]="product.ofert > 0">{{ product.price | currency : 'S/. ' }}</p>
+              </div>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD Cart-tableD__buttonContainer">
+              <span>{{ product.quantity }}</span>
+            </td>
+            <td class="Cart-tableD">|</td>
+            <td class="Cart-tableD">
+              {{ product.quantity * (product.ofert || product.price) | currency : 'S/. ' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article *ngIf="!loading" class="Cart-content resumen orden">
+    <div>
+      <div class="Cart-resument__container">
+        <div class="Cart-resument__descripContainer">
+          <p>Fecha</p>
+          <p>
+            {{ order.orderDate | date : 'dd/MM/YYYY' }}
+          </p>
+        </div>
+        <div class="Cart-resument__descripContainer">
+          <p>Hora</p>
+          <p>
+            {{ order.orderDate | date : 'HH:mm' }}
+          </p>
+        </div>
+        <div class="Cart-resument__descripContainer">
+          <p>N° Productos</p>
+          <p>
+            {{ totalProducts }}
+          </p>
+        </div>
+        <div class="Cart-resument__descripContainer">
+          <p>Total</p>
+          <p>
+            {{ order.totalPrice | currency : 'S/. ' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

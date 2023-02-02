@@ -38,7 +38,7 @@
     </div>
   </article>
   <article class="Cart-content resumen orden">
-    <div ng-if="!$ctrl.pagando">
+    <div>
       <div class="Cart-resument__container">
         <div class="Cart-resument__descripContainer">
           <p>N° Productos</p>
@@ -58,11 +58,7 @@
           <div class="Orden-Form__inputGroup">
             <label>Número de tarjeta:</label>
             <div class="Orden-Form__metodosContainer">
-              <input
-                name="numerotarjeta"
-                type="text"
-                pattern="^\d{16}?$"
-                placeholder="1234 1234 1234 1234" />
+              <input name="numerotarjeta" type="text" placeholder="1234 1234 1234 1234" />
               <div class="Orden-Form__metodos">
                 <img src="https://calvic.netlify.app/src/assets/visa.svg" alt="visa" />
                 <img src="https://calvic.netlify.app/src/assets/mastercard.svg" alt="mastercard" />
@@ -72,14 +68,14 @@
           <div class="Orden-Form__inputGroup">
             <label>Caducidad:</label>
             <div class="Orden-Form__group">
-              <input name="caducidadmm" pattern="^\d{2}?$" type="text" placeholder="MM" />
-              <input name="caducidadaa" pattern="^\d{2}?$" type="text" placeholder="AA" />
+              <input name="caducidadmm" type="text" placeholder="MM" />
+              <input name="caducidadaa" type="text" placeholder="AA" />
             </div>
           </div>
           <div class="Orden-Form__inputGroup">
             <label>CVC:</label>
             <div class="Orden-Form__metodosContainer">
-              <input name="cvc" type="tetx" pattern="^\d{3}?$" placeholder="CVC" />
+              <input name="cvc" type="tetx" placeholder="CVC" />
               <div>
                 <img
                   class="Orden-Form__metodos"

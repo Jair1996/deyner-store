@@ -6,6 +6,8 @@ import {
   where,
   query,
   collection,
+  doc,
+  getDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Order } from '../models/order.model';
@@ -19,6 +21,11 @@ export class OrderService {
   getOrders(): Observable<Order[]> {
     const orderRef = collection(this.firestore, 'orders');
     return collectionData(orderRef, { idField: 'id' }) as Observable<Order[]>;
+  }
+
+  getOrderById(orderId: string) {
+    const orderRef = doc(this.firestore, `orders/${orderId}`);
+    return getDoc(orderRef);
   }
 
   getOrdersByUser(idUser: string) {
